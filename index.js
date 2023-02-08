@@ -42,7 +42,7 @@ app.post('/user', (req,res) => {
         session.userid=req.body.username;
         console.log(req.session)
         // res.send(`Hello, welcome <a href=\'/logout'>click to logout</a>`);
-        res.sendFile('views/homepage.html',{root:__dirname})
+        res.render('/homepage');
     }
     else{
         res.send('Invalid username or password');
