@@ -3,7 +3,12 @@ const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3500;
+
+app.set('views', './views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+
 
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
@@ -20,8 +25,8 @@ app.use(express.static(__dirname));
 
 app.use(cookieParser());
 
-const myusername = 'admin'
-const mypassword = '12345'
+const myusername = ''
+const mypassword = ''
 
 
 
@@ -32,8 +37,9 @@ app.get('/', (req,res) => {
     if(session.userid){
         res.send("Welcome User <a href=\'/logout'>click to logout</a>");
     }
-    else
-    res.sendFile('views/index.html',{root:__dirname})
+    else{
+        // res.sendFile('views/index.html',{root:__dirname})
+    }
 });
 
 app.post('/user', (req,res) => {
@@ -42,7 +48,8 @@ app.post('/user', (req,res) => {
         session.userid=req.body.username;
         console.log(req.session)
         // res.send(`Hello, welcome <a href=\'/logout'>click to logout</a>`);
-        res.render('/homepage');
+        res.render('homepage.html');
+        // res.sendFile('../views/homepage.html', {root:__dirname})
     }
     else{
         res.send('Invalid username or password');
@@ -56,7 +63,12 @@ app.get('/logout', (req, res) => {
 
 app.get('*', (req, res) => {
     // res.send('ไม่พบหน้าที่คุณร้องขอ (Error: 404 Page Not Found)')
-    res.sendFile('views/erorr.html',{root:__dirname})
+    // res.sendFile('views/erorr.html',{root:__dirname})
+    res.render('erorr.html');
 })
+
+// app.post('/data', (req,res) => {
+//     res.render('peronal.html');
+// })
 
 app.listen(PORT, () => console.log(`Server Running at port ${PORT}`));
