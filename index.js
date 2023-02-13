@@ -1,13 +1,26 @@
 const express = require('express');
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
+const mongoose = require('mongoose')
+
+const dbConfig = require('./config/mongodb.config.js')
+const collection = require('./models/customer.js')
 
 const app = express();
-const PORT = 3500;
+const PORT = 3000;
 
 app.set('views', './views');
-app.engine('html', require('ejs').renderFile);
+// app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
+
+
+mongoose.Promise = global.Promise;
+mongoose.connect(dbConfig.url).then(() => {
+    console.log("connect data")
+}).catch(err => {
+    console.log("cannot connect")
+    process.exit()
+})
 
 
 const oneDay = 1000 * 60 * 60 * 24;
@@ -38,17 +51,19 @@ app.get('/', (req,res) => {
         res.send("Welcome User <a href=\'/logout'>click to logout</a>");
     }
     else{
-        // res.sendFile('views/index.html',{root:__dirname})
+        res.sendFile('views/index.html',{root:__dirname})
     }
 });
 
 app.post('/user', (req,res) => {
-    if(req.body.username == myusername && req.body.password == mypassword){
+    const check = collection.findOne({username:req.body.username})
+    // if(req.body.username == check.id && req.body.password == check.password){
+    if(check.password == req.body.password){
         session=req.session;
         session.userid=req.body.username;
         console.log(req.session)
         // res.send(`Hello, welcome <a href=\'/logout'>click to logout</a>`);
-        res.render('homepage.html');
+        res.render('homepage');
         // res.sendFile('../views/homepage.html', {root:__dirname})
     }
     else{
@@ -59,16 +74,26 @@ app.post('/user', (req,res) => {
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/');
+    res.render('index.html');
 });
 
-app.get('*', (req, res) => {
-    // res.send('ไม่พบหน้าที่คุณร้องขอ (Error: 404 Page Not Found)')
-    // res.sendFile('views/erorr.html',{root:__dirname})
-    res.render('erorr.html');
+// app.get('*', (req, res) => {
+//     // res.send('ไม่พบหน้าที่คุณร้องขอ (Error: 404 Page Not Found)')
+//     // res.sendFile('views/erorr.html',{root:__dirname})
+//     res.render('erorr.html');
+// })
+
+app.get('/home', (req,res) => {
+    res.render('homepage');
 })
 
-// app.post('/data', (req,res) => {
-//     res.render('peronal.html');
-// })
+app.get('/data', (req,res) => {
+    res.render('personal');
+})
+
+app.get('/grade', (req,res) => {
+    res.render('gradepage');
+})
+
 
 app.listen(PORT, () => console.log(`Server Running at port ${PORT}`));

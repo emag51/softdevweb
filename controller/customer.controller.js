@@ -1,7 +1,7 @@
 const customer = require('../models/customer.js')
 
 exports.index = (req, res) => {
-    res.send('<h1>Customer Application</h1><hr><a href="/api/customer">รายชื่อลูกค้า</a>')
+    res.send('<h1>Customer Application</h1><hr><a href="/user/username">รายชื่อลูกค้า</a>')
 }
 
 exports.findAll = (req, res) => {

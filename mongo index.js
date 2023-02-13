@@ -36,27 +36,27 @@ const server = app.listen(3000, ()=>{
     console.log('Run at http://localhost:%s', port)
 })
 
-function initCustomer(){
-    let data = [
-        {
-            CustomerId: 1001,
-            FullName: "Thitiphat",
-            Address: "Bangkok"
-        },
-        {
-            CustomerId: 1002,
-            FullName: "Chonakarn",
-            Address: "Nonthaburi"
-        },
-        {
-            CustomerId: 1003,
-            FullName: "Pon",
-            Address: "Patumtani"
-        }
-    ]
-    for(let i=0; i<data.length; i++){
-        const c = new Customer(data[i]);
-        c.save()
-    }
-    console.log("สร้างข้อมูล Customer สำเร็จแล้ว")
-}
+// function initCustomer(){
+//     let data = [
+//         {
+//             CustomerId: 1001,
+//             FullName: "Thitiphat",
+//             Address: "Bangkok"
+//         },
+//         {
+//             CustomerId: 1002,
+//             FullName: "Chonakarn",
+//             Address: "Nonthaburi"
+//         },
+//         {
+//             CustomerId: 1003,
+//             FullName: "Pon",
+//             Address: "Patumtani"
+//         }
+//     ]
+//     for(let i=0; i<data.length; i++){
+//         const c = new Customer(data[i]);
+//         c.save()
+//     }
+//     console.log("สร้างข้อมูล Customer สำเร็จแล้ว")
+// }
