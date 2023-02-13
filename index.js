@@ -38,8 +38,8 @@ app.use(express.static(__dirname));
 
 app.use(cookieParser());
 
-const myusername = ''
-const mypassword = ''
+// const myusername = ''
+// const mypassword = ''
 
 
 
@@ -56,9 +56,9 @@ app.get('/', (req,res) => {
 });
 
 app.post('/user', (req,res) => {
-    const check = collection.findOne({username:req.body.username})
-    // if(req.body.username == check.id && req.body.password == check.password){
-    if(check.password == req.body.password){
+    const check = collection.findOne({usernames:req.body.usernames})
+    // if(req.body.username === check.id && req.body.password === check.password){
+    if(check.password === req.body.password){
         session=req.session;
         session.userid=req.body.username;
         console.log(req.session)
