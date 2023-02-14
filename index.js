@@ -38,8 +38,8 @@ app.use(express.static(__dirname));
 
 app.use(cookieParser());
 
-// const myusername = ''
-// const mypassword = ''
+const myusername = ''
+const mypassword = ''
 
 
 
@@ -56,15 +56,18 @@ app.get('/', (req,res) => {
 });
 
 app.post('/user', (req,res) => {
-    const check = collection.findOne({usernames:req.body.usernames})
+    // const check = collection.findOne({usernames:req.body.usernames})
+    const check = collection.findOne({test:req.body.CustomerId})
+
     // if(req.body.username === check.id && req.body.password === check.password){
-    if(check.password === req.body.password){
+    if(req.body.username == myusername && req.body.password == mypassword){
+    // if(check.password === req.body.password){
         session=req.session;
         session.userid=req.body.username;
         console.log(req.session)
-        // res.send(`Hello, welcome <a href=\'/logout'>click to logout</a>`);
+        // res.send(check.CustomerId,`Hello, welcome <a href=\'/logout'>click to logout</a>`);
         res.render('homepage');
-        // res.sendFile('../views/homepage.html', {root:__dirname})
+        // // res.sendFile('../views/homepage.html', {root:__dirname})
     }
     else{
         res.send('Invalid username or password');
@@ -93,6 +96,10 @@ app.get('/data', (req,res) => {
 
 app.get('/grade', (req,res) => {
     res.render('gradepage');
+})
+
+app.get('/gradeY1', (req,res) => {
+    res.render('gradeshow');
 })
 
 

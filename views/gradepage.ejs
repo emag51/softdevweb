@@ -2,31 +2,7 @@
 <html>
     <head>
         <title>grade</title>
-    <style>
-        ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: rgb(46, 45, 111);
-        }
-
-        li {
-        float: right;
-        }
-
-        li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        }
-
-        li a:hover {
-        background-color: rgb(57, 57, 132);
-        }
-    </style>
+        <link rel="stylesheet" href="../views/gradepage.css">
     </head>
     <body>
         <ul>
@@ -35,10 +11,30 @@
         <li><a href="#contact">CONTACT</a></li>
         <li><a href="/home">HOME</a></li>
         </ul>
-        <h1>Student grade homepage</h1>
-        <p>Student ID : </p>
-        <p>Name : </p>
-        <p>Surname : </p>
-        <p>GPAx :</p>
+
+        <h1>Student grade page</h1>
+        <div class="row">
+            <div class="column">
+                <h2>Image</h2>
+                <image src="../picture/Photo.jpg" width="50%" height="50%">
+            </div>
+            <div class="column">
+                <h2>Personal data</h2>
+                <p>Student ID : 6410301024</p>
+                <p>Name       : Thitiphat</p>
+                <p>Surname    : Preededilok</p>
+                <p>Tel        : 0917397995</p>
+                <p>GPAX       : 4.00</p>
+            </div>
+            <div class="column">
+                <h2>Each year result</h2>
+                <u>
+                <p><a class="active" href="/gradeY1">YEAR1</a></p>
+                <p><a href="/gradeY2">YEAR2</a></p>
+                <p><a href="/gradeY3">YEAR3</a></p>
+                <p><a href="/gradeY4">YEAR4</a></p>
+                </u>
+              </div>
+          </div>
     </body>
 </html>
