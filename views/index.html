@@ -4,15 +4,20 @@
 </head>
 <body>
     <form action="/user" method="post">
-        <h2>Login</h2>
-        <div class="input-field">
-            <input type="text" name="username" id="username" placeholder="Enter Username">
+        <div class="row">
+          <div class="center">
+            <div class="column" style="background-color: rgb(47, 45, 111);">
+                <image src="../picture/main page logo.jpg" width="70%" height="70%">
+            </div>
+            <div class="column2" style="background: linear-gradient(to left, rgb(223, 223, 223), rgb(179, 179, 179));">
+              <h1>LOGIN account</h1>
+              <h2>Only for CDTI crew can login to this service</h2>
+              <p><input type="text" name="name" id="username" placeholder="Enter Username"></p>
+              <p><input type="password" name="password" id="password" placeholder="Enter Password"></p>
+              <p><input type="submit" value="LOGIN"></p>
+            </div>
+         </div>
         </div>
-        <div class=""input-field>
-            <input type="password" name="password" id="password" placeholder="Enter Password">
-        </div>
-        <input type="submit" value="LogIn">
     </form>
 </body>
-
 </html>

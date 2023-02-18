@@ -22,15 +22,6 @@ mongoose.connect(dbConfig.url).then(() => {
     process.exit()
 })
 
-
-const oneDay = 1000 * 60 * 60 * 24;
-app.use(sessions({
-    secret: "thisismysecrctekey",
-    saveUninitialized: true,
-    cookie: { maxAge: oneDay},
-    resave: false
-}));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
@@ -38,44 +29,31 @@ app.use(express.static(__dirname));
 
 app.use(cookieParser());
 
-const myusername = ''
-const mypassword = ''
-
-
-
-var session;
-
 app.get('/', (req,res) => {
-    session = req.session;
-    if(session.userid){
-        res.send("Welcome User <a href=\'/logout'>click to logout</a>");
-    }
-    else{
-        res.sendFile('views/index.html',{root:__dirname})
-    }
+    res.sendFile('views/index.html',{root:__dirname})
 });
 
-app.post('/user', (req,res) => {
-    // const check = collection.findOne({usernames:req.body.usernames})
-    const check = collection.findOne({test:req.body.CustomerId})
+app.post('/user', async(req,res) => {
 
-    // if(req.body.username === check.id && req.body.password === check.password){
-    if(req.body.username == myusername && req.body.password == mypassword){
-    // if(check.password === req.body.password){
-        session=req.session;
-        session.userid=req.body.username;
-        console.log(req.session)
-        // res.send(check.CustomerId,`Hello, welcome <a href=\'/logout'>click to logout</a>`);
-        res.render('homepage');
-        // // res.sendFile('../views/homepage.html', {root:__dirname})
+    try{
+        const check = await collection.findOne({name:req.body.name})
+
+        if(check.password===req.body.password){
+            res.render("homepage", {
+                data: check 
+            })
+        }
+        else{
+            res.send("wrong password")
+        }
     }
-    else{
-        res.send('Invalid username or password');
+    catch{
+        res.send("wrong detail")
     }
 })
 
 app.get('/logout', (req, res) => {
-    req.session.destroy();
+    req.destroy('index.html');
     res.redirect('/');
     res.render('index.html');
 });
