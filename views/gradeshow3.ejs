@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>grade YEAR3</title>
+        <link rel="stylesheet" href="../views/gradeshow.css">
+    </head>
+    <body>
+        <ul>
+        <img src="../picture/logo 3.png" width="134.76" height="46.43">
+        <li><a class="active" href="/data">DATA EDITTING</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="/home">HOME</a></li>
+        </ul>
+
+        <h1>Student grade page</h1>
+        <div class="row">
+            <div class="column">
+                <h2>Image</h2>
+                <image src="../picture/Photo.jpg" width="50%" height="50%">
+            </div>
+            <div class="column">
+                <h2>Personal data</h2>
+                <p>Student ID : <%= data.id %></p>
+                <p>Name       : <%= data.name %></p>
+                <p>Tel        : <%= data.tel %></p>
+                <p>GPAX       : <%= data.gpax %></p>
+            </div>
+        </div>
+
+        <h2>YEAR3 First semaster Table</h2>
+        <table id="customers">
+            <tr>
+              <th>Subject</th>
+              <th>Creidit</th>
+              <th>Grade</th>
+            </tr>
+            <tr>
+              <td><%= data.year3sub1[0] %></td>
+              <td><%= data.year3sub1[1] %></td>
+              <td><%= data.year3sub1[2] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub1[3] %></td>
+              <td><%= data.year3sub1[4] %></td>
+              <td><%= data.year3sub1[5] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub1[6] %></td>
+              <td><%= data.year3sub1[7] %></td>
+              <td><%= data.year3sub1[8] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub1[9] %></td>
+              <td><%= data.year3sub1[10] %></td>
+              <td><%= data.year3sub1[11] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub1[12] %></td>
+              <td><%= data.year3sub1[13] %></td>
+              <td><%= data.year3sub1[14] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub1[15] %></td>
+              <td><%= data.year3sub1[16] %></td>
+              <td><%= data.year3sub1[17] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub1[18] %></td>
+              <td><%= data.year3sub1[19] %></td>
+              <td><%= data.year3sub1[20] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub1[21] %></td>
+              <td><%= data.year3sub1[22] %></td>
+              <td><%= data.year3sub1[23] %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>GPA</td>
+              <td><%= data.year3sub1[24] %></td>
+            </tr>
+        </table>
+
+        <h2>YEAR1 Second semaster Table</h2>
+        <table id="customers">
+            <tr>
+              <th>Subject</th>
+              <th>Creidit</th>
+              <th>Grade</th>
+            </tr>
+            <tr>
+              <td><%= data.year3sub2[0] %></td>
+              <td><%= data.year3sub2[1] %></td>
+              <td><%= data.year3sub2[2] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub2[3] %></td>
+              <td><%= data.year3sub2[4] %></td>
+              <td><%= data.year3sub2[5] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub2[6] %></td>
+              <td><%= data.year3sub2[7] %></td>
+              <td><%= data.year3sub2[8] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub2[9] %></td>
+              <td><%= data.year3sub2[10] %></td>
+              <td><%= data.year3sub2[11] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub2[12] %></td>
+              <td><%= data.year3sub2[13] %></td>
+              <td><%= data.year3sub2[14] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub2[15] %></td>
+              <td><%= data.year3sub2[16] %></td>
+              <td><%= data.year3sub2[17] %></td>
+            </tr>
+            <tr>
+              <td><%= data.year3sub2[18] %></td>
+              <td><%= data.year3sub2[19] %></td>
+              <td><%= data.year3sub2[20] %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>GPA</td>
+              <td><%= data.year3sub2[21] %></td>
+            </tr>
+        </table>
+    </body>
+</html>

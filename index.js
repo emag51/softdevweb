@@ -39,9 +39,37 @@ app.post('/user', async(req,res) => {
         const check = await collection.findOne({name:req.body.name})
 
         if(check.password===req.body.password){
-            res.render("homepage", {
-                data: check 
+            res.render("homepage", {data: check})
+
+            app.get('/data', (req,res) => {
+                res.render("personal",{data: check})
             })
+
+            app.get('/home', (req,res) => {
+                res.render('homepage',{data: check})
+            })
+
+            app.get('/grade', (req,res) => {
+                res.render('gradepage',{data: check})
+            })
+            
+            app.get('/gradeY1', (req,res) => {
+                res.render('gradeshow1',{data: check})
+            })
+
+            app.get('/gradeY2', (req,res) => {
+                res.render('gradeshow2',{data: check})
+            })
+
+            app.get('/gradeY3', (req,res) => {
+                res.render('gradeshow3',{data: check})
+            })
+
+            app.get('/gradeY4', (req,res) => {
+                res.render('gradeshow4',{data: check})
+            })
+
+
         }
         else{
             res.send("wrong password")
@@ -63,22 +91,4 @@ app.get('/logout', (req, res) => {
 //     // res.sendFile('views/erorr.html',{root:__dirname})
 //     res.render('erorr.html');
 // })
-
-app.get('/home', (req,res) => {
-    res.render('homepage');
-})
-
-app.get('/data', (req,res) => {
-    res.render('personal');
-})
-
-app.get('/grade', (req,res) => {
-    res.render('gradepage');
-})
-
-app.get('/gradeY1', (req,res) => {
-    res.render('gradeshow');
-})
-
-
 app.listen(PORT, () => console.log(`Server Running at port ${PORT}`));

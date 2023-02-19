@@ -13,55 +13,45 @@ const CustomerSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    nick:{
+
+
+    sub1:{
         type:String,
         required:true
     },
-    email:{
+    credit1:{
         type:String,
         required:true
     },
-    tel:{
+    grade1:{
         type:String,
         required:true
     },
-    line:{
+
+
+    sub2:{
         type:String,
         required:true
     },
-    year1sub1:{
-        type:Array,
+    credit2:{
+        type:String,
         required:true
     },
-    year1sub2:{
-        type:Array,
+    grade2:{
+        type:String,
         required:true
     },
-    year2sub1:{
-        type:Array,
+
+
+    sub3:{
+        type:String,
         required:true
     },
-    year2sub2:{
-        type:Array,
+    credit3:{
+        type:String,
         required:true
     },
-    year3sub1:{
-        type:Array,
-        required:true
-    },
-    year3sub2:{
-        type:Array,
-        required:true
-    },
-    year4sub1:{
-        type:Array,
-        required:true
-    },
-    year4sub2:{
-        type:Array,
-        required:true
-    },
-    gpax:{
+    grade3:{
         type:String,
         required:true
     }
