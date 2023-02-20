@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>grade simulate</title>
+        <link rel="stylesheet" href="../views/gradeshow.css">
+    </head>
+    <body>
+        <ul>
+        <img src="../picture/logo 3.png" width="134.76" height="46.43">
+        <li><a class="active" href="/data">DATA EDITTING</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="/home">HOME</a></li>
+        </ul>
+
+        <h1>Student grade page</h1>
+        <div class="row">
+            <div class="column">
+                <h2>Image</h2>
+                <image src="../picture/Photo.jpg" width="50%" height="50%">
+            </div>
+            <div class="column">
+                <h2>Personal data</h2>
+                <p>Student ID : <%= data.id %></p>
+                <p>Name       : <%= data.name %></p>
+                <p>Tel        : <%= data.tel %></p>
+                <p>GPAX       : <%= data.gpax %></p>
+            </div>
+        </div>
+        
+        <h2>Simulate Table</h2>
+        <table id="customers">
+            <tr>
+              <th>Subject</th>
+              <th>Creidit</th>
+              <th>Grade</th>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="subject1"></td>
+              <td><input type="number" name="" id="c1" placeholder="credit"><br></td>
+              <td><input type="number" name="" id="g1" placeholder="grade"><br></td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="subject2"></td>
+              <td><input type="number" name="" id="c2" placeholder="credit"><br></td>
+              <td><input type="number" name="" id="g2" placeholder="grade"><br></td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="subject3"></td>
+              <td><input type="number" name="" id="c3" placeholder="credit"><br></td>
+              <td><input type="number" name="" id="g3" placeholder="grade"><br></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="sub4" placeholder="subject4"></td>
+              <td><input type="number" name="" id="c4" placeholder="credit"><br></td>
+              <td><input type="number" name="" id="g4" placeholder="grade"><br></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="sub5" placeholder="subject5"></td>
+              <td><input type="number" name="" id="c5" placeholder="credit"><br></td>
+              <td><input type="number" name="" id="g5" placeholder="grade"><br></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="sub6" placeholder="subject6"></td>
+              <td><input type="number" name="" id="c6" placeholder="credit"><br></td>
+              <td><input type="number" name="" id="g6" placeholder="grade"><br></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="sub7" placeholder="subject7"></td>
+              <td><input type="number" name="" id="c7" placeholder="credit"><br></td>
+              <td><input type="number" name="" id="g7" placeholder="grade"><br></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="sub8" placeholder="subject8"></td>
+              <td><input type="number" name="" id="c8" placeholder="credit"><br></td>
+              <td><input type="number" name="" id="g8" placeholder="grade"><br></td>
+            </tr>
+            <tr>
+              <td><button onclick="getResult()">CALCULATE</button></td>
+              <td>GPA</td>
+              <td><span id="total"></span><br></td>
+            </tr>
+        </table>
+    </body>
+    <script src="../views/grade.js"></script>
+</html>

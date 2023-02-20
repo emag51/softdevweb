@@ -69,6 +69,10 @@ app.post('/user', async(req,res) => {
                 res.render('gradeshow4',{data: check})
             })
 
+            app.get('/gradesim', (req,res) => {
+                res.render('gradesim',{data: check})
+            })
+
 
         }
         else{
