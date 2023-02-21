@@ -14,7 +14,7 @@
         </ul>
           <div class="row">
               <div class="column" style="background-color: rgb(63, 63, 63);">
-                <image src="../picture/Photo.jpg" width="50%" height="50%">
+                <image src="../picture/student.jpg" width="50%" height="50%">
               </div>
               <div class="column1">
                 <p></p>
@@ -24,10 +24,14 @@
                 <p>Student data</p>
                 <p>Student ID : <%= data.id %></p>
                 <p>Name       : <%= data.name %></p>
-                <p>Nick name    : <%= data.nick %></p>
-                <p>Email      : <%= data.email %></p>
+                <p>Nick name    : <%= data.nickname %></p>
+                <p>CDTI Email      : <%= data.email %></p>
+                <p>Personal Email      : <%= data.personalemail %></p>
                 <p>Tel        : <%= data.tel %></p>
                 <p>Line ID    : <%= data.line %></p>
+                <p>Address: <%= data.addr %></p>
+                <p>Food allergy: <%= data.food %></p>
+                <p>Personal disease: <%= data.health %></p>
               </div>
 
               <div class="column3">
@@ -40,7 +44,7 @@
 
               <div class="column2" style="background: linear-gradient(to left, rgb(223, 223, 223), rgb(179, 179, 179));">
                 <p>Grade</p>
-                <p>GPAX : 4.00</p>
+                <p>GPAX: <%= data.gpax %></p>
               </div>
 
             </div>

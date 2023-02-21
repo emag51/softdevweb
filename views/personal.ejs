@@ -2,31 +2,7 @@
 <html>
     <head>
         <title>personal data editting</title>
-    <style>
-        ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: rgb(46, 45, 111);
-        }
-
-        li {
-        float: right;
-        }
-
-        li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        }
-
-        li a:hover {
-        background-color: rgb(57, 57, 132);
-        }
-    </style>
+        <link rel="stylesheet" href="../views/gradeshow.css">
     </head>
     <body>
         <ul>
@@ -36,13 +12,71 @@
         <li><a href="/home">HOME</a></li>
         </ul>
         <h1>Personal data editting page</h1>
-        <p>Student ID : <%= data.id %></p>
-        <p>Name : <%= data.name %></p>
-        <p>Nick name : <%= data.nick %></p>
-        <p>CDTI Email : <%= data.email %></p>
-        <p>Tel : <%= data.tel %></p>
-        <p>Line ID : <%= data.line %></p>
-        <p>Congenital disease : </p>
-        <p>Food allergies :</p>
+        <form action="/change" method="post">
+            <table id="customers">
+                <tr>
+                  <th>Catagory</th>
+                  <th>Current data</th>
+                  <th>Change to</th>
+                  <th>Summit</th>
+                </tr>
+                <tr>
+                  <td>Student ID</td>
+                  <td><%= data.id %></td>
+                  <td><input type="text" name="id" value="<%= data.id %>"><br></td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td><%= data.password %></td>
+                    <td><input type="text" name="password" value="<%= data.password %>"><br></td>
+                  </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><%= data.name %></td>
+                    <td><input type="text" name="name" value="<%= data.name %>"><br></td>
+                </tr>
+                <tr>
+                    <td>Nick name</td>
+                    <td><%= data.nickname %></td>
+                    <td><input type="text" name="nickname" value="<%= data.nickname %>"><br></td>
+                </tr>
+                <tr>
+                    <td>CDTI Email</td>
+                    <td><%= data.email %></td>
+                    <td><input type="text" name="email" value="<%= data.email %>"><br></td>
+                </tr>
+                <tr>
+                    <td>Personal Email</td>
+                    <td><%= data.personalemail %></td>
+                    <td><input type="text" name="personalemail" value="<%= data.personalemail %>"><br></td>
+                </tr>
+                <tr>
+                    <td>Tel</td>
+                    <td><%= data.tel %></td>
+                    <td><input type="text" name="tel" value="<%= data.tel %>"><br></td>
+                </tr>
+                <tr>
+                    <td>Line ID</td>
+                    <td><%= data.line %></td>
+                    <td><input type="text" name="line" value="<%= data.line %>"><br></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><%= data.addr %></td>
+                    <td><input type="text" name="addr" value="<%= data.addr %>"><br></td>
+                </tr>
+                <tr>
+                    <td>Personal disease</td>
+                    <td><%= data.health %></td>
+                    <td><input type="text" name="health" value="<%= data.health %>"><br></td>
+                </tr>
+                <tr>
+                    <td>Food allergies</td>
+                    <td><%= data.food %></td>
+                    <td><input type="text" name="food" value="<%= data.food %>"><br></td>
+                </tr>
+                <td><button type="submit">submit change</button></td>
+            </table>
+        </form>
     </body>
 </html>

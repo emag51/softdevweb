@@ -13,11 +13,15 @@ const CustomerSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    nick:{
+    nickname:{
         type:String,
         required:true
     },
     email:{
+        type:String,
+        required:true
+    },
+    personalemail:{
         type:String,
         required:true
     },
@@ -26,6 +30,18 @@ const CustomerSchema = new mongoose.Schema({
         required:true
     },
     line:{
+        type:String,
+        required:true
+    },
+    addr:{
+        type:String,
+        required:true
+    },
+    food:{
+        type:String,
+        required:true
+    },
+    health:{
         type:String,
         required:true
     },
