@@ -12,7 +12,6 @@ const app = express();
 const PORT = 3000;
 
 app.set('views', './views');
-// app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 
@@ -63,6 +62,23 @@ app.post('/user', async(req,res) => {
     }
 })
 
+app.post('/teacheruser', async(req,res) => {
+    try{
+        const check = await collection.findOne({name:req.body.name})
+        session = req.session
+        session.name = req.body.name
+        if(check.password===req.body.password){
+            res.render("teacherhomepage", {data: check})
+        }
+        else{
+            res.redirect("/")
+        }
+    }
+    catch{
+        res.redirect("/")
+    }
+})
+
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/');
@@ -82,10 +98,22 @@ app.get('/data', async(req,res) => {
     res.render("personal",{data: getdata})
 })
 
+app.get('/teacherdata', async(req,res) => {
+    session = req.session
+    const getdata = await collection.findOne({name:session.name})
+    res.render("teacherpersonal",{data: getdata})
+})
+
 app.get('/home', async(req,res) => {
     session = req.session
     const getdata = await collection.findOne({name:session.name})
     res.render('homepage',{data: getdata})
+})
+
+app.get('/teacherhome', async(req,res) => {
+    session = req.session
+    const getdata = await collection.findOne({name:session.name})
+    res.render('teacherhomepage',{data: getdata})
 })
 
 app.get('/grade', async(req,res) => {
@@ -129,7 +157,53 @@ app.get('/gradesim', async(req,res) => {
     res.render('gradesim',{data: getdata})
 })
 
+app.get('/search', async(req,res) => {
+    session = req.session
+    const getdata = await collection.findOne({name:session.name})
+    res.render('search',{data: getdata})
+})
+
+app.get('/teachersearch', async(req,res) => {
+    session = req.session
+    const getdata = await collection.findOne({name:session.name})
+    res.render('teachersearch',{data: getdata})
+})
+
+
 app.post("/change", async(req, res) => {
+    session = req.session
+    // const getdata = await collection.findOne({name:session.name})
+    collection.findOneAndUpdate(req.body.name, {$set: {
+        name: req.body.name,
+        id: req.body.id,
+        password: req.body.password,
+        nickname: req.body.nickname,
+        email: req.body.email,
+        personalemail: req.body.perssonalemail,
+        tel: req.body.tel,
+        line: req.body.line,
+        addr: req.body.addr,
+        health: req.body.health,
+        food: req.body.food
+    }}, {new: true})
+    .then(data =>{
+        if(!data){
+            return res.status(404).json({
+                msg: "ไม่พบ Record รหัส : " + req.body.name
+            })
+        }
+        else{
+            console.log("Update Complete")
+            res.redirect("/home")
+        }
+    }).catch(err => {
+        return res.status(500).json({
+            msg: "ไม่สามารถ Update ข้อมูลได้ เนื่องจาก : " + err.message
+        })
+    })
+})
+
+app.post("/teacherchange", async(req, res) => {
     session = req.session
     // const getdata = await collection.findOne({name:session.name})
     collection.findOneAndUpdate(req.body.name, {$set: {

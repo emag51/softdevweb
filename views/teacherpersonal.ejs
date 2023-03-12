@@ -7,12 +7,11 @@
     <body>
         <ul>
         <img src="../picture/logo 3.png" width="134.76" height="46.43">
-        <li><a class="active" href="/grade">GRADE</a></li>
-        <li><a href="/search">SEARCH</a></li>
-        <li><a href="/home">HOME</a></li>
+        <li><a class="active" href="/teachersearch">SEARCH</a></li>
+        <li><a href="/teacherhome">HOME</a></li>
         </ul>
         <h1>Personal data editting page</h1>
-        <form action="/change" method="post">
+        <form action="/teacherchange" method="post">
             <table id="customers">
                 <tr>
                   <th>Catagory</th>
@@ -20,7 +19,7 @@
                   <th>Change to</th>
                 </tr>
                 <tr>
-                  <td>Student ID</td>
+                  <td>Teacher ID</td>
                   <td><%= data.id %></td>
                   <td><input type="text" name="id" value="<%= data.id %>"><br></td>
                 </tr>
