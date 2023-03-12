@@ -68,6 +68,14 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 })
 
+app.get('/teacher', (req, res) => {
+    res.sendFile('views/teacher.html',{root:__dirname})
+})
+
+app.get('/student', (req, res) => {
+    res.sendFile('views/student.html',{root:__dirname})
+})
+
 app.get('/data', async(req,res) => {
     session = req.session
     const getdata = await collection.findOne({name:session.name})
@@ -123,7 +131,7 @@ app.get('/gradesim', async(req,res) => {
 
 app.post("/change", async(req, res) => {
     session = req.session
-    const getdata = await collection.findOne({name:session.name})
+    // const getdata = await collection.findOne({name:session.name})
     collection.findOneAndUpdate(req.body.name, {$set: {
         name: req.body.name,
         id: req.body.id,
@@ -145,7 +153,7 @@ app.post("/change", async(req, res) => {
         }
         else{
             console.log("Update Complete")
-            res.redirect("/")
+            res.redirect("/home")
         }
     }).catch(err => {
         return res.status(500).json({

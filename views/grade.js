@@ -20,11 +20,8 @@ const getResult = () => {
     let c7 = document.getElementById('c7').value;
     let g7 = document.getElementById('g7').value;
 
-    let c8 = document.getElementById('c8').value;
-    let g8 = document.getElementById('g8').value;
-
-    let grade = parseFloat(c1*g1) + parseFloat(c2*g2) + parseFloat(c3*g3) + parseFloat(c4*g4) + parseFloat(c5*g5) + parseFloat(c6*g6) + parseFloat(c7*g7) + parseFloat(c8*g8);
-    let credit = parseFloat(c1) + parseFloat(c2) + parseFloat(c3) + parseFloat(c4) + parseFloat(c5) + parseFloat(c6) + parseFloat(c7) + parseFloat(c8);
+    let grade = parseFloat(c1*g1) + parseFloat(c2*g2) + parseFloat(c3*g3) + parseFloat(c4*g4) + parseFloat(c5*g5) + parseFloat(c6*g6) + parseFloat(c7*g7);
+    let credit = parseFloat(c1) + parseFloat(c2) + parseFloat(c3) + parseFloat(c4) + parseFloat(c5) + parseFloat(c6) + parseFloat(c7);
     let total = grade/credit;
 
     document.getElementById('total').innerHTML = total;

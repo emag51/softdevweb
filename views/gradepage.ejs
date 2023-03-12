@@ -8,7 +8,7 @@
         <ul>
         <img src="../picture/logo 3.png" width="134.76" height="46.43">
         <li><a class="active" href="/data">DATA EDITTING</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#contact">SEARCH</a></li>
         <li><a href="/home">HOME</a></li>
         </ul>
 
@@ -23,17 +23,15 @@
                 <p>Student ID : <%= data.id %></p>
                 <p>Name       : <%= data.name %></p>
                 <p>Tel        : <%= data.tel %></p>
-                <p>GPAX       : </p>
+                <p>GPAX       : <%= data.gpax %></p>
             </div>
             <div class="column">
                 <h2>Each year result</h2>
-                <u>
-                <p><a class="active" href="/gradeY1">YEAR1</a></p>
-                <p><a href="/gradeY2">YEAR2</a></p>
-                <p><a href="/gradeY3">YEAR3</a></p>
-                <p><a href="/gradeY4">YEAR4</a></p>
-                <p><a href="/gradeSIM">grade simulator</a></p>
-                </u>
+                <a href="/gradeY1" class="button">YEAR1</a>
+                <a href="/gradeY2" class="button">YEAR2</a>
+                <a href="/gradeY3" class="button">YEAR3</a>
+                <a href="/gradeY4" class="button">YEAR4</a>
+                <p><a href="/gradeSIM" class="button">GRADE SIMULATOR</a></p>
               </div>
           </div>
     </body>
